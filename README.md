@@ -10,7 +10,7 @@ Tank war (artillery game)
 > Risović Benisa
 
 **Opis igre:**
-Igra bo sestavljena za dva uporabnika, ki bosta med sabo tekmovala. Vsak izmed njiju izstreli topovsko kroglico in tisti ki prvi zadane nasprotnika, bo zmagal. 
+Igra bo sestavljena za dva uporabnika, ki bosta med sabo tekmovala. Vsak izmed njiju izstreli topovsko kroglico in tisti, ki prvi zadane nasprotnika, bo zmagal. 
 
 **Terminski plan projekta:**
 
