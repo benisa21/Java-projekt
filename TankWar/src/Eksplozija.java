@@ -6,8 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Eksplozija extends Objekt {
-	//Razred prestavlja objekt eksplozija.
-	
+	// Razred opisuje eksplozijo, ki shrani polozaj (x in y koordinata ter velikost) in pa lokacijo datoteke slike
 	public Image slika;
 	public Eksplozija(Polozaj polozaj, String lokacija) {
 		super(polozaj);
