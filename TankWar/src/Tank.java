@@ -18,7 +18,7 @@ public class Tank extends Objekt {
 
 	public Tank(String file_location, Polozaj polozaj, boolean premik_v_levo, boolean premik_v_desno, int igralec) {
 		super(polozaj);
-		
+		//objektu tipa tank določimo položaj, možne premike in trenutnega igralca
 		try {
 			this.slika = ImageIO.read(new File(file_location));
 		} catch (IOException e) {
@@ -68,13 +68,15 @@ public class Tank extends Objekt {
 
 	
 	public Polozaj getPresecisce(Teren_hrib hrib) {
+		//polozaj hriba je opisan z elipso
 		int y = (int)(this.getPolozaj().getY() + this.getPolozaj().getVisina()/5);
 		double a = hrib.getPolozaj().getDolzina()/2;
 		double b = hrib.getPolozaj().getVisina()/2;
 		
 		int p = (int)(hrib.getPolozaj().getX() + a);
 		int q = (int)(hrib.getPolozaj().getY() + b);
-		
+		// s pomočjo enačbe premaknjene elipse dobimo robne točke hriba
+		// na tak način lahko preverjamo ali je krogla trčila ob rob hriba
 		int x1 = (int)(Math.sqrt((1- ((y-q)*(y-q))/(b*b)) * (a*a))+p);
 		int x2 = (int)(-(Math.sqrt((1- ((y-q)*(y-q))/(b*b)) * (a*a)))+p);
 		Polozaj polozaj1 = new Polozaj(x1, y, 0, 0);
@@ -90,6 +92,7 @@ public class Tank extends Objekt {
 	}
 	
 	public void premakni(int dolzina, Teren_hrib hrib) {
+		// Tank se lahko premika od roba okna do roba hriba
 		if (this.getPolozaj().getX() <= dolzina-this.getPolozaj().getDolzina() && this.getPolozaj().getX() >= 0) {
 			if (this.getIgralec() == 1) {
 				if (this.getPolozaj().getX() + this.getPolozaj().getDolzina() < getPresecisce(hrib).getX()) {
