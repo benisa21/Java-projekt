@@ -1,5 +1,6 @@
 
 public class Krogla extends Objekt {
+	// razred opisuje Objekt Krogla, ki vsebuje polozaj(x, y koordinata in velikost), hitrost v x in y smeri, ter pospesek v x in y smeri
 	
 	public int x;
 	public int y;
@@ -7,7 +8,6 @@ public class Krogla extends Objekt {
 	public int hitrost_y;
 	public int pospesek_x;
 	public int pospesek_y;
-//	private List<Objekt> objekti;
 	
 	public Krogla (Polozaj polozaj, int hitrost_x, int hitrost_y,int pospesek_x, int pospesek_y) {
 		super(polozaj);
@@ -20,16 +20,18 @@ public class Krogla extends Objekt {
 	}
 	
 
-	
+	// funkcija za preverjanje trka Krogle s hribom
 	public boolean isTrkHrib(Teren_hrib hrib, int igralec) {
-		
+		// hrib opisemo z enačbo premaknjene elipse 
 		double a = hrib.getPolozaj().getDolzina()/2;
 		double b = hrib.getPolozaj().getVisina()/2;
 		
 		int p = (int)(hrib.getPolozaj().getX() + a);
 		int q = (int)(hrib.getPolozaj().getY() + b);
 		
+		// če je polozaj krogle znotraj elipse vrnemo true
 		if (igralec == 1) {
+			// enačba elipse
 			if (((this.x + this.getPolozaj().dolzina - p)*(this.x  + this.getPolozaj().dolzina - p)/(a*a) + Math.pow((this.y + this.getPolozaj().visina - q)/b, 2.0)) <= 1) {
 				return true;
 			}
