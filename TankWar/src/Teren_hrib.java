@@ -1,5 +1,7 @@
 
 public class Teren_hrib extends Objekt {
+	// Razred Teren_hrib je podrazred razreda Objekt, ki pa kot argumente dodatno sprejme zacetni in koncni kot, ki opisujeta zacetek in 
+	// konec kroznega izseka 
 	private int zacetni_kot;
 	private int koncni_kot;
 
