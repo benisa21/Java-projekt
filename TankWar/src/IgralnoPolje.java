@@ -32,8 +32,6 @@ public class IgralnoPolje extends JPanel implements KeyListener, MouseMotionList
 	
 	public double preizkus;
 	
-	public Stanje stanje;
-	
 	public boolean povecujCas;
 	
 	public boolean ustavi;
