@@ -1,4 +1,5 @@
 public class Polozaj {
+	// Razred Polozaj sprejme štiri argumente (x in y koordinato ter dolzino in visino) 
 	public float x;
 	public float y;
 	public int dolzina;
@@ -50,11 +51,14 @@ public class Polozaj {
 	public int getVisina() {
 		return visina;
 	}
+	
+	// funkcija jeZnotraj pove ali je podana točka v trenutnem objektu oz se prekriva
 	public boolean jeZnotraj(int x, int y){
 		return (x <= this.getX() + this.dolzina/2  && x >= this.getX() - this.dolzina/2		&&
 				y <= this.getY() + this.visina/2 && y >= this.getY() - this.visina/2);
 	}
 	
+	// funkcija jeZunaj pove ali je neka podana točka zunaj našega objekta
 	public boolean jeZunaj(int x, int y){
 		return (!jeZnotraj(x, y));
 	}
