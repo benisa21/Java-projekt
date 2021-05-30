@@ -1,5 +1,5 @@
 public class Objekt {
-	
+	// Razred Objekt opisuje vse elemente na igralnem polju (Tank, Eksplozijo, Kroglo, Teren). Shrani jim polozaj (x in y koordinata ter velikost)
 	protected Polozaj polozaj;
 	
 	
