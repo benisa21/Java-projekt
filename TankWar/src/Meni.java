@@ -19,6 +19,7 @@ public class Meni extends JPanel implements Runnable, MouseListener {
 
 
 	public Meni (CardLayout cardLayout, Zazeni zazeni) {
+		//Ustvarimo začetni meni, ki se prikaže ob zagonu igrice
 		super();
 		this.setBackground(Color.PINK);
 		this.zazeni = zazeni;
@@ -34,7 +35,7 @@ public class Meni extends JPanel implements Runnable, MouseListener {
 		int y = 100;
 		int dolzina = 150;
 		int visina = 100;
-
+		//ustvarimo dva manjša okna, na katera uporabnik lahko klikne
 		igraj = new Polozaj(x, y+150,  dolzina, visina);
 		izhod = new Polozaj(x, y+250,  dolzina, visina);
 
@@ -52,21 +53,24 @@ public class Meni extends JPanel implements Runnable, MouseListener {
         double visina = (double)(getHeight())/(double)(zazeni.visina);
 		
 
-		
 		graphics.drawString("IGRAJ", (int)((igraj.getX() - igraj.dolzina/2)*dolzina), (int)((igraj.getY() + igraj.visina/2)*visina));
 		graphics.drawString("IZHOD", (int)((izhod.getX() - izhod.dolzina/2)*dolzina), (int)((izhod.getY() + izhod.visina/2)*visina));
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent mouseEvent) {
+		//uporabniku omogočimo, da s klikom miške zažene oziroma zapre igrico, v odvisnosti od pozicije miške
 		double dolzina = (double)(getWidth())/(double)(zazeni.dolzina);
         double visina = (double)(getHeight())/(double)(zazeni.visina);
 		if(mouseEvent.getButton() == MouseEvent.BUTTON1){
 			if(igraj.jeZnotraj((int) (mouseEvent.getX()*dolzina), (int) (mouseEvent.getY()*visina))){
 				igralnoPolje = new IgralnoPolje(cardLayout, zazeni);
 				JPanel kontejner = (JPanel) ((JPanel) mouseEvent.getSource()).getParent();
+				//v kontejner zraven menija dodamo še igralno polje
 				kontejner.add(igralnoPolje, BorderLayout.CENTER);
+				//omogočimo prikaz izbranega panela
 			 	cardLayout.show(kontejner, BorderLayout.CENTER);
+			 	//omogočimo uporabo MouseEvent tudi v igralnem polju
 			 	kontejner.addKeyListener(igralnoPolje);
 			 	kontejner.grabFocus();
 			}
@@ -106,3 +110,4 @@ public class Meni extends JPanel implements Runnable, MouseListener {
 		
 	}
 }
+
